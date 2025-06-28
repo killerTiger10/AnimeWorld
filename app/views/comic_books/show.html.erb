@@ -1,0 +1,11 @@
+
+    <%= render 'shared/menu' %>
+
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+            <h1 class="mb-4"><%= @comic_book.name %></h1>
+            <p class="mb-3">Publisher: <%= link_to @comic_book.publisher.name, publisher_path(@comic_book.publisher) %></p>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,23 @@
+
+    <%= render 'shared/menu' %>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @comic_books.each do |comic_book| %>
+            <tr>
+                <td><%= comic_book.id %></td>
+                <td><%= link_to comic_book.name, comic_book_path(comic_book), style: "text-decoration: none;" %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+<%= paginate @comic_books %>
+</div>
+

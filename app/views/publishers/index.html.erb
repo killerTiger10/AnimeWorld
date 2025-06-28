@@ -1,0 +1,30 @@
+
+    <%= render 'shared/menu' %>
+
+    <div class="container">
+        <div class="row">
+            <% @publishers.each do |publisher| %>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                <img src="<%= publisher.image_thumb %>" class="card-img-top" alt="<%= publisher.name %> Thumbnail">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="card-title"><%= link_to publisher.name, publisher_path(publisher), style: "text-decoration: none;" %></h2>
+                    <p class="card-text"><%= publisher.deck %></p>
+                    <p>Number of Characters: <%= publisher.characters.count %></p>
+                    <p>Number of Comic Books: <%= publisher.comic_books.count %></p>
+                    <div class="mt-auto d-flex flex-column justify-content-end">
+                        <%= link_to "Show Characters", publisher_characters_path(publisher), class: "btn btn-primary mb-2" %>
+                        <%= link_to "Show Comic Books", publisher_comic_books_path(publisher), class: "btn btn-primary" %>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <div>
+        <%= paginate @publishers %>
+    </div>
+
+
+
